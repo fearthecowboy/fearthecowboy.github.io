@@ -7,4 +7,8 @@ tags: [rambling]
 ---
 {% include JB/setup %}
 
-> hello world
+I'm  not going to bore you with the mundane details of why it took so long to put this blog back online. 
+
+Suffice to say, at least I have a place I can do some blogging again.
+
+Yay!
