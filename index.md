@@ -1,36 +1,14 @@
 ---
 layout: page
-title: Where did I leave my website?
-tagline: Oh, yeah. 
+title: Garrett Serack
+tagline: A rather different, out-of-the-box Senior Open Source Software Engineer. 
 ---
 {% include JB/setup %}
+## #include
+It would be a rare day that I’m not solving a problem, challenging the status quo, or turning some assumptions upside down to see what can actually be accomplished. I strive to have a positive impact while maintaining a pragmatic approach to solving problems. Even when things didn’t turn out exactly as I planned, I can honestly say that everything tended to turn out pretty great. 
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
-
-## Update Author Attributes
-
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
-
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
-
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
-
-    $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
+## Latest Blog Posts
 
 <ul class="posts">
   {% for post in site.posts %}

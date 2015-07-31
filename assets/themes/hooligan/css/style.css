@@ -63,6 +63,7 @@ h1 {
 /* line 57, ../_sass/_base.scss */
 h2 {
   font-size: 30px;
+  color : #902020;
 }
 
 /* line 61, ../_sass/_base.scss */
@@ -410,4 +411,8 @@ div.sidebar section img.icon {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+}
+
+footer>div.container {
+	  background-color: rgba(0, 0, 0, 0.9);
 }
