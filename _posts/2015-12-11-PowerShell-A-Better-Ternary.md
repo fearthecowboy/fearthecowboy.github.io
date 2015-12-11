@@ -29,13 +29,13 @@ A C# Example:
   var dude = age > 50 ? "Old Man"  : "Young Punk";
 {% endhighlight %}
 
-#### That time when someone tried to fix it with some duck-tape 
+## That time when someone tried to fix it with some duck-tape 
 
 Sadly, there exists no comparable feature in PowerShell. Searching the internets, I found an attempt to make something that is kinda the same:
 
 From a blog post by [Jeffrey Snover](http://blogs.msdn.com/b/powershell/archive/2006/12/29/dyi-ternary-operator.aspx): 
 
-``` powershelll
+{% highlight powershell %}l
 # ---------------------------------------------------------------------------
 # Name:   Invoke-Ternary
 # Alias:  ?:
@@ -53,13 +53,13 @@ filter Invoke-Ternary ([scriptblock]$decider, [scriptblock]$ifTrue, [scriptblock
       &$ifFalse 
    }
 }
-```
+{% endhighlight %}
 
 Which lets one use a construct that looks like this:
 
-``` powershell
+{% highlight powershell %}
 dude =  (?:  {$age -gt 50} {"Old Man"} {"Young Punk"})
-```
+{% endhighlight %}
 
 *sigh* ... I'll give high marks for terse, but ... not really the same readability as a C-style ternary.
 
@@ -71,44 +71,44 @@ Let's take a look at some examples, and I'll show the code to accomplish this at
 
 ----
 ###### Simple, straightforward ternary
-``` powershell
+{% highlight powershell %}
 $x == ( 'a' -eq 'a' ) ? "yes" : "no"
 echo "Result: $x"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: yes
-``` 
+{% endhighlight %}
 
 ----
 ###### How about if it's false
-``` powershell
+{% highlight powershell %}
 $x == ('a' -eq 'b' ) ? "that would be not correct" : "of course they are not equal"
 echo "Result: $x"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: of course they are not equal
-```
+{% endhighlight %}
 
 ----
 ###### More fun
-``` powershell
+{% highlight powershell %}
 $x == ('a' -lt 'b' ) ? ('a' -ne 'b') : ('a' -eq 'b' )
 echo  "Result: $x"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: True
-```
+{% endhighlight %}
 
 ----
 The other thing that's missing from a PowerShell is a null-coalescing operator. In a c# example:
 
-``` c#
+{% highlight csharp %}
   // An ugly, bloated mess
   var answer = SomeFunction();
   if( answer == null ) {
@@ -117,49 +117,49 @@ The other thing that's missing from a PowerShell is a null-coalescing operator. 
 
   // Using the null-coalescing operator:
   var answer = SomeFunction() ?? "not found";
-``` 
+{% endhighlight %}
 
 Which offers a clean, tight and simple way of saying if the answer is null, then use this answer instead.
 Maybe we can do the samething in PowerShell?
 
 ###### How much would you pay for a null-coalescing operator like C# ?
-``` powershell
+{% highlight powershell %}
 $z == $null ?? "This works!"
 echo  "Result: $z"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: This works!
-```
+{% endhighlight %}
 
 ----
 ###### Of course, it still thinks like powershell so 0, false and $null are all still 'negative'
-``` powershell
+{% highlight powershell %}
 $b == (1 +2 -3) ?? 100
 echo  "Result: $b"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: 100
-```
+{% endhighlight %}
 
 ----
 ###### And regular numbers work nice:
-``` powershell
+{% highlight powershell %}
 $b == (1 +2 +3) ?? 100
 echo  "Result: $b"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result : 6
-```
+{% endhighlight %}
 
 ----
 ###### Let's try some more complicated examples
-``` powershell
+{% highlight powershell %}
 function get-null { return $null }
 
 function get-somevalue { return "SomeValue" }
@@ -170,72 +170,72 @@ function invoke-sample {
 }
 
 echo "Result: $(invoke-sample)"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: SomeValue
-```
+{% endhighlight %}
 
 ----
 ###### A slight variation
-``` powershell
+{% highlight powershell %}
 function invoke-sample { 
     # this is what I've wanted for years!
     return = ( get-null ) ?? ( get-somevalue )
 }
 
 echo "Result: $(invoke-sample)"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 Result: SomeValue
-```
+{% endhighlight %}
 
 ----
 ###### What does this one do?
-``` powershell
+{% highlight powershell %}
 function invoke-sample { 
     # this is what I've wanted for years!
     return =  get-null  ?? ( get-somevalue ) 
 }
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 echo "Result: $(invoke-sample)"
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 # perhaps not so surpising...
 get-null 
-```
+{% endhighlight %}
 
 ----
 ###### We can drop the pretenses; you should have a clue by now.
-``` powershell
+{% highlight powershell %}
 = $null ?? { "still" + "right" } 
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 stillright
-```
+{% endhighlight %}
 
 ----
 ###### A couple more bits of fun:
-``` powershell
+{% highlight powershell %}
 echo (= 0 ? 100 : 200 )
 echo (= 1 ? 100 : 200 )
-```
+{% endhighlight %}
 
 >  
-``` powershell
+{% highlight powershell %}
 200
 100
-```
+{% endhighlight %}
 
 ----
 #### Taking a peek behind the curtain
@@ -247,7 +247,7 @@ of evaluating a parameter-regardless if it's an scriptblock or just a value
 made it pretty simple to 'extend' assignment with an extra equal sign `=`
    
 
-``` powershell
+{% highlight powershell %}
 # ---------------------------------------------------------------------------
 # Name:   Invoke-Assignment
 # Alias:  =
@@ -308,6 +308,6 @@ function Invoke-Assignment {
 
 # alias the function to the equals sign (which doesn't impede the normal use of = )
 set-alias = Invoke-Assignment -Option AllScope -Description "FearTheCowboy's Invoke-Assignment."
-```
+{% endhighlight %}
 
 Now, go forth, and bring terseness and compaction to your scripts!
