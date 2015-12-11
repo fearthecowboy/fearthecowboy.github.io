@@ -35,7 +35,7 @@ Sadly, there exists no comparable feature in PowerShell. Searching the internets
 
 From a blog post by [Jeffrey Snover](http://blogs.msdn.com/b/powershell/archive/2006/12/29/dyi-ternary-operator.aspx): 
 
-{% highlight powershell %}l
+{% highlight powershell %}
 # ---------------------------------------------------------------------------
 # Name:   Invoke-Ternary
 # Alias:  ?:
