@@ -16,7 +16,7 @@ However, as I worked more with PowerShell, I got to like it a lot, and now use i
 A couple of big gripes come from the lack of a decent ternary operator in the language--which is a very terse way of cramming a whole if/else statement into a single expression:
 
 A C# Example:
-``` c#
+{% highlight csharp %}
   // The ugly, bloated mess
   string dude;
   if( age > 50 ) {
@@ -27,7 +27,8 @@ A C# Example:
 
   // Using a ternary, cleans up your code!
   var dude = age > 50 ? "Old Man"  : "Young Punk";
-```
+{% endhighlight %}
+
 #### That time when someone tried to fix it with some duck-tape 
 
 Sadly, there exists no comparable feature in PowerShell. Searching the internets, I found an attempt to make something that is kinda the same:
