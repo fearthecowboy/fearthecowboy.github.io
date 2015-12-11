@@ -70,6 +70,7 @@ I have made (in my ever-so-humble opinion) a far smarter way to accomplish the s
 Let's take a look at some examples, and I'll show the code to accomplish this at the end.
 
 ----
+
 ### Simple, straightforward ternary
 {% highlight powershell %}
 $x == ( 'a' -eq 'a' ) ? "yes" : "no"
@@ -82,6 +83,7 @@ Result: yes
 {% endhighlight %}
 
 ----
+
 ### How about if it's false
 {% highlight powershell %}
 $x == ('a' -eq 'b' ) ? "that would be not correct" : "of course they are not equal"
@@ -94,6 +96,7 @@ Result: of course they are not equal
 {% endhighlight %}
 
 ----
+
 ### More fun
 {% highlight powershell %}
 $x == ('a' -lt 'b' ) ? ('a' -ne 'b') : ('a' -eq 'b' )
@@ -106,6 +109,7 @@ Result: True
 {% endhighlight %}
 
 ----
+
 The other thing that's missing from a PowerShell is a null-coalescing operator. In a c# example:
 
 {% highlight csharp %}
@@ -134,6 +138,7 @@ Result: This works!
 {% endhighlight %}
 
 ----
+
 ### Of course, it still thinks like powershell so 0, false and $null are all still 'negative'
 {% highlight powershell %}
 $b == (1 +2 -3) ?? 100
@@ -146,6 +151,7 @@ Result: 100
 {% endhighlight %}
 
 ----
+
 ### And regular numbers work nice:
 {% highlight powershell %}
 $b == (1 +2 +3) ?? 100
@@ -158,6 +164,7 @@ Result : 6
 {% endhighlight %}
 
 ----
+
 ### Let's try some more complicated examples
 {% highlight powershell %}
 function get-null { return $null }
@@ -178,6 +185,7 @@ Result: SomeValue
 {% endhighlight %}
 
 ----
+
 ### A slight variation
 {% highlight powershell %}
 function invoke-sample { 
@@ -194,16 +202,14 @@ Result: SomeValue
 {% endhighlight %}
 
 ----
+
 ### What does this one do?
 {% highlight powershell %}
 function invoke-sample { 
     # this is what I've wanted for years!
     return =  get-null  ?? ( get-somevalue ) 
 }
-{% endhighlight %}
 
->  
-{% highlight powershell %}
 echo "Result: $(invoke-sample)"
 {% endhighlight %}
 
@@ -214,6 +220,7 @@ get-null
 {% endhighlight %}
 
 ----
+
 ### We can drop the pretenses; you should have a clue by now.
 {% highlight powershell %}
 = $null ?? { "still" + "right" } 
@@ -225,6 +232,7 @@ stillright
 {% endhighlight %}
 
 ----
+
 ### A couple more bits of fun:
 {% highlight powershell %}
 echo (= 0 ? 100 : 200 )
@@ -238,6 +246,7 @@ echo (= 1 ? 100 : 200 )
 {% endhighlight %}
 
 ----
+
 ## Taking a peek behind the curtain
 
 The ever-so-clever PowerShell enthusiasts will have probably guessed _why_ this works.
