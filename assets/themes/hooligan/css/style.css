@@ -8,10 +8,7 @@
 html, body {
   background-color: #000000;
   background: url(../images/bgs/body.png) repeat;
-   -webkit-transition: background 0.5s linear;
-    -moz-transition: background 0.5s linear;
-    -o-transition: background 0.5s linear;
-    transition: background 0.5s linear;
+      background-blend-mode: hard-light,soft-light;
 }
 
 /* line 18, ../_sass/_base.scss */
