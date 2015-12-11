@@ -6,9 +6,11 @@
 /* Override some defaults */
 /* line 13, ../_sass/_base.scss */
 html, body {
-  background-color: #000000;
+  background-color: #0f0f0f;
+  /*
   background: url(../images/bgs/body.png) repeat;
       background-blend-mode: hard-light,soft-light;
+      */
 }
 
 /* line 18, ../_sass/_base.scss */
