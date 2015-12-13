@@ -275,7 +275,7 @@ made it pretty simple to 'extend' assignment with an extra equal sign `=`
 #         $status == ($age > 50) ? "old" : "young"
 #
 # Null Coalescing Usage:
-#         $name = (get-name) ? "No Name" 
+#         $name == (get-name) ?? "No Name" 
 # ---------------------------------------------------------------------------
 
 # returns the evaluated value of the parameter passed in, 
