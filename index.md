@@ -1,5 +1,17 @@
-#include
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-It would be a rare day that I’m not solving a problem, challenging the status quo, or turning some assumptions upside down to see what can actually be accomplished. I strive to have a positive impact while maintaining a pragmatic approach to solving problems. Even when things didn’t turn out exactly as I planned, I can honestly say that everything tended to turn out pretty great.
+layout: default
+---
+# # Posts
 
-# Posts
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      {{ post.excerpt }}
+    </li>
+  {% endfor %}
+</ul>
+

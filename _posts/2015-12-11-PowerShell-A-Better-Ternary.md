@@ -5,8 +5,6 @@ description: "A better solution for Ternary and Null-coalescing operators"
 category: PowerShell
 tags: [PowerShell, Ternary, Operator, Null-Coalescing, Hack]
 ---
-{% include JB/setup %}
-
 It took me a long time to actually start using PowerShell for my daily scripting tasks, mainly beacuse I was so damn good at CMD shell scripts, and it was such a hassle to learn to do everything differently.
 
 However, as I worked more with PowerShell, I got to like it a lot, and now use it for virtually all my automation needs.
