@@ -2,7 +2,7 @@
 layout: post
 title: "Cinnamon Buns"
 description: "My Flaky off the cuff cinnamon buns"
-category: meta
+category: food
 tags: [rambling]
 ---
 
