@@ -5,7 +5,6 @@ description: "My Flaky off the cuff cinnamon buns"
 category: meta
 tags: [rambling]
 ---
-## My off-the-cuff Super Flaky Cinnamon Buns
 
 I don't really have a fixed recipe, it's just reflex.
 Hopefully it's workable!
