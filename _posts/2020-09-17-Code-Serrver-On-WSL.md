@@ -61,6 +61,11 @@ If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
   Break
 }
 
+# create the firewall rule to let in 443/80
+if( -not ( get-netfirewallrule -displayname web -ea 0 ) {
+  new-netfirewallrule -name web -displayname web -enabled true -profile any -action allow -localport 80,443 -protocol tcp 
+}
+
 $remoteport = bash.exe -c "ifconfig eth0 | grep 'inet '"
 $found = $remoteport -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}';
 
