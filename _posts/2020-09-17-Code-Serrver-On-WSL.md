@@ -97,20 +97,10 @@ Sorry, didn't automate that. It's a one-time thing.
 > When Caddy runs, it will automatically go and get an HTTPS certificate from Let's Encrypt for that domain. 
 > <br>Make sure that you have your DNS pointing to your IP address
 
-### 6. I created a `start.sh` file to manually start up the code-server process and the caddy process:
-``` sh
-sudo echo "Sudo?. Thanks." # force it to ask for sudo password up front.
 
-code-server --disable-telemetry &
-sudo caddy run --config /etc/caddy/Caddyfile &
-```
-
-### 7. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
+### 6. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
 or edit the file and set one
 
-### 8. Run your `start.sh` script.  
-  (watch for any errors, bla bla bla)
-
-### 9. Browse to your domain name you set up.
+### 7. Browse to your domain name you set up.
 
   
