@@ -19,12 +19,12 @@ Prep:
 - If you are on a NAT, port-forward 80/443 to your Windows machine (specific to your router)
 
 Steps:
-## 1. __Install Code-Server__
+### 1. Install Code-Server
 In WSL run the command to install code-server:<br>
   `curl -fsSL https://code-server.dev/install.sh | sh`
 <hr>
 
-## 2. Install Caddy
+### 2. Install Caddy
 >__Note__: This will appear to fail to install the daemon as it's built for `systemd` AFAICT. Don't worry about it. 
 
 ``` sh
@@ -34,7 +34,7 @@ In WSL run the command to install code-server:<br>
 ```
 <hr>
 
-## 3. Make Windows pass thru the ports. 
+### 3. Make Windows pass thru the ports. 
 <br> I found a powershell script that makes this really easy. Create a `network-forward-to-wsl.ps1` script : 
 
 ``` powershell
@@ -69,11 +69,11 @@ iex "netsh interface portproxy show v4tov4";
 > __NOTE:__ You will have to  run that every time you restart WSL (WSL gets a random IP in an internal address)
 <hr>
 
-## 4. Unblock ports `443/80` in Windows Firewall
+### 4. Unblock ports `443/80` in Windows Firewall
 Sorry, didn't automate that. It's a one-time thing.
 <hr>
 
-## 5. Using your domain name (ie `code.mydomain.com`), replace `/etc/caddy/Caddyfile` with sudo to look like this:
+### 5. Using your domain name (ie `code.mydomain.com`), replace `/etc/caddy/Caddyfile` with sudo to look like this:
 ``` sh
   code.mydomain.com
 
@@ -82,7 +82,7 @@ Sorry, didn't automate that. It's a one-time thing.
 > When Caddy runs, it will automatically go and get an HTTPS certificate from Let's Encrypt for that domain. 
 > <br>Make sure that you have your DNS pointing to your IP address
 
-## 6. I created a `start.sh` file to manually start up the code-server process and the caddy process:
+### 6. I created a `start.sh` file to manually start up the code-server process and the caddy process:
 ``` sh
 sudo echo "Sudo?. Thanks." # force it to ask for sudo password up front.
 
@@ -90,12 +90,12 @@ code-server --disable-telemetry &
 sudo caddy run --config /etc/caddy/Caddyfile &
 ```
 
-## 7. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
+### 7. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
 or edit the file and set one
 
-## 8. Run your `start.sh` script.  
+### 8. Run your `start.sh` script.  
   (watch for any errors, bla bla bla)
 
-## 9. Browse to your domain name you set up.
+### 9. Browse to your domain name you set up.
 
   
