@@ -17,6 +17,7 @@ This is going to be short and sweet, as I don't have a lot of time to burn with 
 Prep:
 - Make sure that you have your DNS pointing to your external IP address (My router supports dyndns, so it can keep the DNS record up to date YMMV.)
 - If you are on a NAT, port-forward 80/443 to your Windows machine (specific to your router)
+- Make sure you have `network-tools` installed in WSL (`sudo apt-get install network-tools` ) 
 
 Steps:
 ### 0. Install WSL support for systemd
@@ -28,6 +29,7 @@ cd ubuntu-wsl2-systemd-script/
 bash ubuntu-wsl2-systemd-script.sh
 # Enter your password and wait until the script has finished
 ```
+
 Then restart the Ubuntu shell and try running systemctl
 `systemctl`
 
@@ -86,14 +88,10 @@ for( $i = 0; $i -lt $ports.length; $i++ ){
 iex "netsh interface portproxy show v4tov4";
 ```
 
-> __NOTE:__ You will have to  run that every time you restart WSL (WSL gets a random IP in an internal address)
+> __NOTE:__ You will have to run that elevated every time you restart WSL (WSL gets a random IP in an internal address)
 <hr>
 
-### 4. Unblock ports `443/80` in Windows Firewall
-Sorry, didn't automate that. It's a one-time thing.
-<hr>
-
-### 5. Using your domain name (ie `code.mydomain.com`), replace `/etc/caddy/Caddyfile` with sudo to look like this:
+### 4. Using your domain name (ie `code.mydomain.com`), replace `/etc/caddy/Caddyfile` with sudo to look like this:
 ``` sh
   code.mydomain.com
 
@@ -103,9 +101,9 @@ Sorry, didn't automate that. It's a one-time thing.
 > <br>Make sure that you have your DNS pointing to your IP address
 
 
-### 6. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
+### 5. Get the password from your `~/.config/code-server/config.yaml` file (it's randomly generated) <br>
 or edit the file and set one
 
-### 7. Browse to your domain name you set up.
+### 6. Browse to your domain name you set up.
 
   
