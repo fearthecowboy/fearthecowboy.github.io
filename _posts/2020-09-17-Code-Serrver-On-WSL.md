@@ -19,9 +19,24 @@ Prep:
 - If you are on a NAT, port-forward 80/443 to your Windows machine (specific to your router)
 
 Steps:
+### 0. Install WSL support for systemd
+Run the script and commands
+
+``` sh
+git clone https://github.com/DamionGans/ubuntu-wsl2-systemd-script.git
+cd ubuntu-wsl2-systemd-script/
+bash ubuntu-wsl2-systemd-script.sh
+# Enter your password and wait until the script has finished
+```
+Then restart the Ubuntu shell and try running systemctl
+`systemctl`
+
 ### 1. Install Code-Server
 In WSL run the command to install code-server:<br>
   `curl -fsSL https://code-server.dev/install.sh | sh`
+
+To enable it in systemd:
+  `sudo systemctl enable --now code-server@$USER`
 <hr>
 
 ### 2. Install Caddy
